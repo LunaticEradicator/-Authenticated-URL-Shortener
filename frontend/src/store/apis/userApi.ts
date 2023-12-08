@@ -17,7 +17,7 @@ const userApi = parentApi.injectEndpoints({
         body: data,
       }),
     }),
-    logout: builder.mutation({
+    logout: builder.mutation<void, void>({
       query: () => ({
         url: `${USERS_URL}/logout`,
         method: "POST",

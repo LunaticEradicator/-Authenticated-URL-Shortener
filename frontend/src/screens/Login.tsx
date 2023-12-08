@@ -1,13 +1,38 @@
 import "../sass/screen/login.scss";
 import Container from "../components/Reusable/Container";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useLoginMutation } from "../store/apis/userApi";
+import { RootState } from "../store/store"; // typescript fix
+import { loginCredentials } from "../store/slices/authSlice";
+import { toast } from "react-toastify";
 
 export default function Login() {
+  const dispatch = useDispatch(); // for userApi slice [action.payload]
+  const navigate = useNavigate(); // to change to a link inside a function
+
+  const [loginApi] = useLoginMutation(); // userApi []
+  const { userInfo } = useSelector((state: RootState) => state.auth); // global state
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+  //checking if url have 'redirect' in it's address
+  const { search } = useLocation();
+  const searchParams = new URLSearchParams(search);
+  const redirect = searchParams.get("redirect") || "/";
+
+  // if userInfo has value it means we are logged in
+  // if so navigate to the current redirect
+  useEffect(() => {
+    if (userInfo) {
+      navigate(redirect);
+    }
+  }, [userInfo, redirect, navigate]);
+  // console.log(redirect);
 
   // For User Input
   function onChangeHandler(event: React.ChangeEvent<HTMLInputElement>) {
@@ -19,9 +44,20 @@ export default function Login() {
   // console.log(formData);
 
   // For Submitting the User Input
-  function onSubmitHandler(event: React.FormEvent<HTMLFormElement>) {
+  const onSubmitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-  }
+    try {
+      const response = await loginApi({
+        email: formData.email,
+        password: formData.password,
+      }).unwrap();
+      dispatch(loginCredentials({ ...response }));
+      navigate(redirect);
+      toast.success("User Login Successful");
+    } catch (error: any) {
+      toast.error(error?.data?.message || error.error);
+    }
+  };
   return (
     <Container>
       <div className="login">
@@ -35,7 +71,6 @@ export default function Login() {
           <div className="login__form__email">
             <label htmlFor="email">Enter Email</label>
             <input
-              required={true}
               type="email"
               name="email"
               id="email"
@@ -46,7 +81,6 @@ export default function Login() {
           <div className="login__form__password">
             <label htmlFor="password">Enter Password</label>
             <input
-              required={true}
               type="password"
               name="password"
               id="password"
@@ -58,7 +92,12 @@ export default function Login() {
         </form>
         <span>
           New User?
-          <Link to="/register"> Register</Link>
+          {/* if user tries to checkout without logging in or register 
+           redirect from shipping to login or register 
+          else go to  /register  or /login*/}
+          <Link to={redirect ? `/register?redirect= ${redirect}` : "/register"}>
+            Register
+          </Link>
         </span>
       </div>
     </Container>

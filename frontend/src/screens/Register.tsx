@@ -8,6 +8,7 @@ export default function Register() {
     userName: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
 
   // For User Input
@@ -55,6 +56,17 @@ export default function Register() {
             />
           </div>
           <div className="register__form__password">
+            <label htmlFor="password">Enter Password</label>
+            <input
+              required={true}
+              type="password"
+              name="password"
+              id="password"
+              value={formData.password}
+              onChange={(event) => onChangeHandler(event)}
+            />
+          </div>
+          <div className="register__form__confirmPassword">
             <label htmlFor="password">Enter Password</label>
             <input
               required={true}

@@ -56,9 +56,17 @@ Install Package [jsonwebtoken,cookie-parser].
 ```
 Setup redux [store and provider]
 Create UserApi [login,register,logout]
-Create UserSlice [loginDetails,registerDetails,logoutDetails]
+Create UserSlice [loginCredentials,registerCredentials,logoutCredentials]
 Change home screen [urlShorter]
 Create Header Component
 Create Footer Component
 Install Package [react-redux, @reduxjs/toolkit].
+```
+
+**Seventh Commit**
+
+```
+Login functionality
+Header Component Change [rebase]
+Install Package [react-toastify].
 ```
