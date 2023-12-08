@@ -1,13 +1,13 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import user from "./data/user.js";
+import user from "./data/userData.js";
+import connectDatabase from "./config/db.js";
 
-// env config
-dotenv.config();
-
-const port = process.env.port || 8080;
+dotenv.config(); // dotenv config
+connectDatabase(); // Connect MongoDB Database
 const app = express();
+const port = process.env.port || 8080;
 
 // working of frontend on backend [different server]
 app.use(cors());
