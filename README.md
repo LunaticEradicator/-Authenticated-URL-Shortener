@@ -39,3 +39,14 @@ Create Custom Async handler
 Fetch data from database
 Test using postman [get request]
 ```
+
+**Fifth Commit**
+
+```
+Create jsonwebtoken and store it in cookie
+Create protectionMiddle [later use]
+Create login route [email and password validation and save the user._id as cookie]
+Create register route [save the user._id as cookie]
+Create user logout [Clearing the cookie]
+Install Package [jsonwebtoken,cookie-parser].
+```
