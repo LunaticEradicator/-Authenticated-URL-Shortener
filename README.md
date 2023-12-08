@@ -29,3 +29,13 @@ Setup Seed File
 Add Script to Run seedFile
 Install Package [mongoose, colors, bcrypt].
 ```
+
+**Fourth Commit**
+
+```
+Setup Routes and controller for API [Best Practice] .
+Create Custom error handler
+Create Custom Async handler
+Fetch data from database
+Test using postman [get request]
+```
