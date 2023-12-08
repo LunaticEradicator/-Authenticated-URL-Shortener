@@ -50,3 +50,15 @@ Create register route [save the user._id as cookie]
 Create user logout [Clearing the cookie]
 Install Package [jsonwebtoken,cookie-parser].
 ```
+
+**Sixth Commit**
+
+```
+Setup redux [store and provider]
+Create UserApi [login,register,logout]
+Create UserSlice [loginDetails,registerDetails,logoutDetails]
+Change home screen [urlShorter]
+Create Header Component
+Create Footer Component
+Install Package [react-redux, @reduxjs/toolkit].
+```

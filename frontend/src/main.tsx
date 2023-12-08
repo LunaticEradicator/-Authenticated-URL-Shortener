@@ -16,12 +16,15 @@ import Login from "./screens/Login.tsx";
 import Register from "./screens/Register.tsx";
 import UrlShorter from "./screens/UrlShorter.tsx";
 
+// redux
+import { Provider } from "react-redux";
+import { store } from "./store/store.tsx";
 // react router
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
-      <Route index={true} path="/" element={<Login />} />
-      <Route path="/urlShorter" element={<UrlShorter />}></Route>
+      <Route index={true} path="/" element={<UrlShorter />}></Route>
+      <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />}></Route>
     </Route>
   )
@@ -29,6 +32,8 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <Provider store={store}>
+      <RouterProvider router={router}></RouterProvider>
+    </Provider>
   </React.StrictMode>
 );
