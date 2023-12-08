@@ -35,8 +35,15 @@ export default function UrlShorter() {
           </div>
         </form>
       </div>
+    </>
+  );
+}
 
-      <table>
+{
+  /* Responsive Table to show Shorten page [Implementation later] */
+}
+{
+  /* <table>
         <caption>Shorten URL Details</caption>
         <thead>
           <tr>
@@ -50,7 +57,5 @@ export default function UrlShorter() {
             <td data-label="URL">URL</td>
           </tr>
         </tbody>
-      </table>
-    </>
-  );
+      </table> */
 }
