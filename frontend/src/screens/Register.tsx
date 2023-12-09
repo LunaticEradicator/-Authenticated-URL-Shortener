@@ -57,6 +57,8 @@ export default function Register() {
   // For Submitting the User Input to the database
   const onSubmitHandler = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    // if form details is left empty or password doesn't not match
+    // send error
     if (
       formData.userName === "" ||
       formData.email === "" ||
@@ -64,7 +66,6 @@ export default function Register() {
       formData.confirmPassword === "" ||
       formData.confirmPassword !== formData.password
     ) {
-      // event.target.setCustomValidity(".error-message");
       toast.error("Password must be same");
     } else {
       try {
@@ -74,9 +75,6 @@ export default function Register() {
           password: formData.password,
         }).unwrap();
         dispatch(registerCredentials({ ...response }));
-        // navigate(redirect);
-        // console.log(redirect);
-        // console.log("FIXXXXXX");
         toast.success("User Registered Successful");
       } catch (error: any) {
         toast.error(error?.data?.message || error.error);

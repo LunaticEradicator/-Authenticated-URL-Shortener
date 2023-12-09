@@ -41,7 +41,7 @@ export default function UrlShorter() {
   // if so navigate to the current redirect
   useEffect(() => {
     if (userInfo) {
-      refetch(); // fetch the corresponding logged in user's shortUrl
+      // refetch(); // fetch the corresponding logged in user's shortUrl
       navigate(redirect);
     }
     console.log(redirect);
@@ -130,7 +130,7 @@ export default function UrlShorter() {
           </div>
         </form>
       </div>
-      {renderShortUrlData}
+      {userInfo && renderShortUrlData}
     </>
   );
 }
