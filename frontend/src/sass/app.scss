@@ -1,6 +1,47 @@
+@forward "utils";
+
 body {
   margin: 0;
 }
 h1 {
   background-color: red;
+}
+
+td {
+  font-size: 1.2rem;
+  word-wrap: break-word;
+}
+
+table,
+th,
+td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid black;
+}
+
+th {
+  font-size: 1.3rem;
+  border-left: none;
+}
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 30px;
+  width: 90%;
+  margin: auto;
+  //   font-family: "Open Sans", sans-serif;
+}
+
+caption {
+  // text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+  // @include ut.breakpoint(medium) {
+  //   font-size: 1.5rem;
+  // }
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }

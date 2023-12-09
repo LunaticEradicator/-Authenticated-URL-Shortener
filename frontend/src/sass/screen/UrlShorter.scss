@@ -1,32 +1,43 @@
+@use "../utils/" as ut; //fix
 .urlShorter {
+  margin: 10px;
+  border: 1px solid grey;
+  // box-shadow: 0 2px 3px #0006, 0 1px 2px -1px #0000001a;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
   font-size: 1.5rem;
+  & h2 {
+    text-align: center;
+  }
   &__form__url {
+    //fix
     display: flex;
     gap: 10px;
+    @include ut.breakpoint(medium) {
+      flex-direction: column;
+    }
     > input {
       flex-grow: 1;
     }
+    > label {
+      text-align: center; // responsive on mobile layout
+    }
   }
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  border: 1px solid #ddd;
-}
-
-th,
-td {
-  text-align: left;
-  padding: 8px;
-}
-caption {
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 20px;
-}
-
-tr:nth-child(even) {
-  background-color: #f2f2f2;
+  &__btn {
+    all: unset;
+    border-radius: 10px;
+    padding: 8px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background-color: rgb(14, 14, 14);
+    border: 1px solid rgb(14, 14, 14);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s;
+    &:hover {
+      background-color: rgb(255, 255, 255);
+      color: rgb(14, 14, 14);
+    }
+  }
 }

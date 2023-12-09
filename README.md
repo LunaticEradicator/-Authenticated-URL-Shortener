@@ -89,3 +89,12 @@ Register and Logout functionality
 Backend Implementation ShortUrl [Model, Routes, Controller]
 Install Package [valid-url,shortid].
 ```
+
+**Ninth Commit**
+
+```
+Frontend Implementation ShortUrl [Redux API, mutation and query on Home-screen]
+Backend : ProtectedRoute on ShortUrl [Only if user Login [Authentication] is done, api will be called]
+Responsive Table to store the ShortUrl data
+Minor Style Changes and responsive fix
+```

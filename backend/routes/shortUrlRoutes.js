@@ -5,13 +5,14 @@ import {
   getWorkingUrl,
 } from "../controller/shortUrlController.js";
 
+import protectedMiddleware from "../middleware/authMiddleware.js";
 const router = express.Router();
 
 // short Url Route
-router.post("/", createShortUrl);
-router.get("/:id", getWorkingUrl); // correct Url
+router.post("/", protectedMiddleware, createShortUrl);
+router.get("/:id", protectedMiddleware, getWorkingUrl); // correct Url
 
 //! specific [implement later]
-router.get("/", getAllShortUrl);
+router.get("/", protectedMiddleware, getAllShortUrl);
 
 export default router;
