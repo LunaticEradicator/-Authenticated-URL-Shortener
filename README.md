@@ -70,3 +70,9 @@ Login functionality
 Header Component Change [rebase]
 Install Package [react-toastify].
 ```
+
+**Eight Commit**
+
+```
+Register and Logout functionality
+```

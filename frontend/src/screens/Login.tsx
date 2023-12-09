@@ -52,7 +52,7 @@ export default function Login() {
         password: formData.password,
       }).unwrap();
       dispatch(loginCredentials({ ...response }));
-      navigate(redirect);
+      // navigate(redirect);
       toast.success("User Login Successful");
     } catch (error: any) {
       toast.error(error?.data?.message || error.error);
@@ -61,7 +61,7 @@ export default function Login() {
   return (
     <Container>
       <div className="login">
-        <h2 className="login__header">Login Credentials</h2>
+        <h2 className="login__header">Login User</h2>
         {/* HTML FORM */}
         <form
           action="#"
@@ -92,10 +92,13 @@ export default function Login() {
         </form>
         <span>
           New User?
-          {/* if user tries to checkout without logging in or register 
-           redirect from shipping to login or register 
-          else go to  /register  or /login*/}
-          <Link to={redirect ? `/register?redirect= ${redirect}` : "/register"}>
+          {/* after login if There is redirect go the the redirect page  */}
+          {/* else go to /register */}
+          <Link
+            className="toRegisterLink"
+            to={redirect ? `/register?redirect=${redirect}` : "/register"}
+          >
+            {" "}
             Register
           </Link>
         </span>

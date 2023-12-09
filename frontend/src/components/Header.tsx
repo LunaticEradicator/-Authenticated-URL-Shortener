@@ -1,9 +1,27 @@
 import "../sass/components/header.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { RootState } from "../store/store";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useLogoutMutation } from "../store/apis/userApi";
+import { logoutCredentials } from "../store/slices/authSlice";
+import { toast } from "react-toastify";
+
 export default function Header() {
   const { userInfo } = useSelector((state: RootState) => state.auth); // global state
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [logoutApi] = useLogoutMutation();
+
+  const handleLogout = async () => {
+    try {
+      await logoutApi().unwrap();
+      dispatch(logoutCredentials());
+      navigate("/login");
+      toast.success("Logout Successful");
+    } catch (error: any) {
+      toast.error(error?.data?.message || error.error);
+    }
+  };
 
   return (
     <nav id="navbarParent">
@@ -17,7 +35,7 @@ export default function Header() {
         {/*List Two*/}
         <li className="navbar__item">
           {userInfo ? (
-            <Link to="#" className="navbar__item__link">
+            <Link onClick={handleLogout} to="#" className="navbar__item__link">
               Logout
               <sup>{` ${userInfo.name}`}</sup>
             </Link>

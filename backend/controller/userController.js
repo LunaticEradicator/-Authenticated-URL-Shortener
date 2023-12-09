@@ -62,8 +62,8 @@ const userRegister = asyncHandler(async (req, res) => {
     createToken(res, newUser._id);
     res.status(201).json({
       _id: newUser._id,
-      name: newUser._id,
-      email: newUser._id,
+      name: newUser.name,
+      email: newUser.email,
     });
   } else {
     res.status(400);

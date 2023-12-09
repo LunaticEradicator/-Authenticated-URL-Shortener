@@ -38,3 +38,21 @@
     }
   }
 }
+
+.error-message {
+  display: none;
+  // visibility: hidden;
+  font-weight: bold;
+  color: red;
+  font-size: 0.7rem;
+}
+
+input:not(:focus):not(:placeholder-shown):invalid ~ .error-message {
+  display: inherit;
+}
+
+.toRegisterLink {
+  font-weight: bold;
+  color: rgb(21, 163, 206);
+  text-decoration: none;
+}
