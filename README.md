@@ -76,3 +76,16 @@ Install Package [react-toastify].
 ```
 Register and Logout functionality
 ```
+
+**Ninth Commit**
+
+```
+[Logic
+ 1, We save the user input in the database using a post route
+ 2, Then we create a random id [shortid] for that link
+ 3, Then we create another get route
+ 4, Where we will search the model id with the req.params[id]
+ ]
+Backend Implementation ShortUrl [Model, Routes, Controller]
+Install Package [valid-url,shortid].
+```

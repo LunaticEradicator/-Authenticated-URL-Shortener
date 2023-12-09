@@ -25,7 +25,7 @@ export default function Register() {
   //checking if url have 'redirect' in it's address
   const { search } = useLocation();
   const searchParams = new URLSearchParams(search);
-  const redirect = searchParams.get("redirect") || "/"; /// fixxxxxxxxxxx
+  const redirect = searchParams.get("redirect") || "/";
   // if userInfo has value it means we are logged in
   // if so navigate to the current redirect
   useEffect(() => {
