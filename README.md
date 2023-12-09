@@ -1,6 +1,34 @@
 # Authenticated URL Shortener Using node.js
 
-## 1, Steps
+** Live Preview - https://shorturl-s42i.onrender.com/ **
+
+![Alt text](image.png)
+
+### 1, Info
+
+```
+Authenticated URL Shortener using MERN Stack.
+Frontend         => React
+State Management => Redux
+Backend          => Node.js
+Database         => MongoDb
+ Styling using Scss [Css Preprocessor ].
+```
+
+```
+Auth done using json web token
+Only Authenticated User [Logged User] can access ShortUrl
+```
+
+### 2,Predefined User [For Login]
+
+user = > author@gmail.com  
+password = > 123456
+
+user = > itadori@gmail.com  
+password = > 123456
+
+### 3, Steps
 
 **First Commit**
 
@@ -136,4 +164,10 @@ Test Build Setting [see if dist folder is created in frontend]
  1, by setting .env as production
  2, npm run build
  3, browser open the backend localhost [http://localhost:8080]
+```
+
+**Fourteen Commit**
+
+```
+Update Readme
 ```
