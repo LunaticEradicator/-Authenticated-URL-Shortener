@@ -10,25 +10,33 @@ const createShortUrl = asyncHandler(async (req, res) => {
   const { longUrl } = req.body;
   const createShortId = shortid.generate();
 
-  const urlExist = await ShortUrl.findOne({ longUrl: longUrl });
-  //   base case
+  // end case
+  // each user can have same link
+  // if the url does not  exist in the database for that particular user
+  const urlExist = await ShortUrl.findOne({
+    user: req.user._id,
+    longUrl: longUrl,
+  });
+
   if (urlExist) {
     res.status(400);
     throw new Error("URl Already Exist");
   }
 
-  // only if the user entered data [longUrl] is valid
+  // only if the user entered URl data  [longUrl] is valid
   // create a new model
   // send a response
   if (validUrl.isUri(longUrl)) {
     // Creating a new shortUrl
     const newShortUrl = await ShortUrl.create({
+      user: req.user._id,
       shortUrl: createShortId,
       longUrl: longUrl,
     });
     if (newShortUrl) {
       res.status(201).json({
         _id: newShortUrl._id,
+        user: newShortUrl._id,
         shortUrl: newShortUrl.shortUrl,
         longUrl: newShortUrl.longUrl,
       });
@@ -62,8 +70,12 @@ const getWorkingUrl = asyncHandler(async (req, res) => {
 // @route  get/api/shortUrl
 // @access private
 const getAllShortUrl = asyncHandler(async (req, res) => {
-  const shortUrls = await ShortUrl.find({});
-  res.status(202).json(shortUrls);
+  const shortUrlsOfParticularUser = await ShortUrl.find({ user: req.user._id });
+  if (shortUrlsOfParticularUser) {
+    res.status(200).json(shortUrlsOfParticularUser);
+  } else {
+    res.status(404).json("ShortUrl Not Found");
+  }
 });
 
 export { createShortUrl, getAllShortUrl, getWorkingUrl };

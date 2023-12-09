@@ -41,6 +41,7 @@ export default function UrlShorter() {
   // if so navigate to the current redirect
   useEffect(() => {
     if (userInfo) {
+      refetch(); // fetch the corresponding logged in user's shortUrl
       navigate(redirect);
     }
     console.log(redirect);
@@ -58,14 +59,15 @@ export default function UrlShorter() {
     // only if userInfo [ jwt token] is available
     if (!userInfo) {
       redirect ? navigate(`/login?redirect=${redirect}`) : navigate("/login");
-    }
-    try {
-      await shortApi({ longUrl: formData.urlShorter }).unwrap(); // creating new shortUrl
-      toast.success("ShortUrl Successfully Created");
-      formData.urlShorter = "";
-      refetch(); // refetch api after creating a new shorterUrl
-    } catch (error: any) {
-      toast.error(error?.data?.message || error.error);
+    } else {
+      try {
+        await shortApi({ longUrl: formData.urlShorter }).unwrap(); // creating new shortUrl
+        toast.success("ShortUrl Successfully Created");
+        formData.urlShorter = "";
+        refetch(); // refetch api after creating a new shorterUrl
+      } catch (error: any) {
+        toast.error(error?.data?.message || error.error);
+      }
     }
   };
 
@@ -85,7 +87,7 @@ export default function UrlShorter() {
           </tr>
         </thead>
         <tbody>
-          {shortUrlData.map((data: postProps) => {
+          {shortUrlData?.map((data: postProps) => {
             return (
               <tr key={data._id}>
                 <td data-label="Shorten URL">{data.longUrl}</td>

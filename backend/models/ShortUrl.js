@@ -1,7 +1,11 @@
 import mongoose from "mongoose";
-// import shortid from "shortid";
 
 const shortUrlSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "User",
+  },
   shortUrl: {
     type: String,
     required: true,
@@ -10,10 +14,6 @@ const shortUrlSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // shortUrl: {
-  //   type: String,
-  //   required: true,
-  // },
 });
 
 const ShortUrl = mongoose.model("ShortUrl", shortUrlSchema);

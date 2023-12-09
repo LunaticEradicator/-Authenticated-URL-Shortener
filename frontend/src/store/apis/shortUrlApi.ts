@@ -15,6 +15,8 @@ const userApi = parentApi.injectEndpoints({
         url: SHORT_URL,
         method: "GET",
       }),
+      providesTags: ["ShortUrl"],
+      keepUnusedDataFor: 5,
     }),
   }),
 });
