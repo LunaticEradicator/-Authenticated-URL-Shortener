@@ -125,3 +125,15 @@ Bug Fix : Automated Re-fetching [Redux]
 Code Cleanup
 Style Change
 ```
+
+**Fourteen Commit**
+
+```
+To Deploy for Production and Host in render
+Change Code in server.js
+Add Build script in root package.json
+Test Build Setting [see if dist folder is created in frontend]
+ 1, by setting .env as production
+ 2, npm run build
+ 3, browser open the backend localhost [http://localhost:8080]
+```

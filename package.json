@@ -10,7 +10,8 @@
     "client": "npm run dev --prefix frontend",
     "dev": "concurrently \" npm run server \" \" npm run client\"",
     "data:import": "node backend/seed.js",
-    "data:delete": "node backend/seed.js -d"
+    "data:delete": "node backend/seed.js -d",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "",
