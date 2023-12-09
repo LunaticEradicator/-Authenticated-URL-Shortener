@@ -2,22 +2,24 @@
 
 body {
   margin: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 h1 {
   background-color: red;
 }
 
-td {
-  font-size: 1.2rem;
-  word-wrap: break-word;
-}
-
+// Responsive Table [UrlShorter.tsx]
 table,
 th,
 td {
   padding: 10px;
   text-align: center;
   border: 1px solid black;
+}
+
+td {
+  font-size: 1.2rem;
+  word-wrap: break-word;
 }
 
 th {
@@ -44,4 +46,14 @@ caption {
 }
 tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+.longUrl,
+.shortUrl {
+  color: rgb(206, 21, 21);
+  // font-weight: bold;
+  text-decoration: none;
+  &:hover {
+    text-decoration: 1px solid underline;
+  }
 }

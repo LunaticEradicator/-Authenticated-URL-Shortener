@@ -54,6 +54,9 @@ const createShortUrl = asyncHandler(async (req, res) => {
 // @route  get/api/shortUrl/:id
 // @access private
 const getWorkingUrl = asyncHandler(async (req, res) => {
+  // get a specific shortUrl [placeholder]
+  // if we hit the api
+  // redirect to the longUrl [correct url]
   try {
     const workingUrl = await ShortUrl.findOne({ shortUrl: req.params.id });
     if (workingUrl) {
@@ -66,10 +69,10 @@ const getWorkingUrl = asyncHandler(async (req, res) => {
   }
 });
 
-//? @desc  get ShortUrl
+//? @desc  get ShortUrl of particular User
 // @route  get/api/shortUrl
 // @access private
-const getAllShortUrl = asyncHandler(async (req, res) => {
+const getShortUrlOfUser = asyncHandler(async (req, res) => {
   const shortUrlsOfParticularUser = await ShortUrl.find({ user: req.user._id });
   if (shortUrlsOfParticularUser) {
     res.status(200).json(shortUrlsOfParticularUser);
@@ -78,4 +81,4 @@ const getAllShortUrl = asyncHandler(async (req, res) => {
   }
 });
 
-export { createShortUrl, getAllShortUrl, getWorkingUrl };
+export { createShortUrl, getWorkingUrl, getShortUrlOfUser };

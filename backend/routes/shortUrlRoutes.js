@@ -1,8 +1,8 @@
 import express from "express";
 import {
   createShortUrl,
-  getAllShortUrl,
   getWorkingUrl,
+  getShortUrlOfUser,
 } from "../controller/shortUrlController.js";
 
 import protectedMiddleware from "../middleware/authMiddleware.js";
@@ -12,7 +12,7 @@ const router = express.Router();
 router.post("/", protectedMiddleware, createShortUrl);
 router.get("/:id", protectedMiddleware, getWorkingUrl); // correct Url
 
-//! specific [implement later]
-router.get("/", protectedMiddleware, getAllShortUrl);
+// specific url
+router.get("/", protectedMiddleware, getShortUrlOfUser);
 
 export default router;

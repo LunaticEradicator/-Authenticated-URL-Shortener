@@ -1,8 +1,7 @@
 export default [
   {
-    // _id: 1,
     userName: "Yedu",
-    url: "https://lunaticeradicator.github.io/Management-App/",
-    urlShorter: "Management-App",
+    longUrl: "https://lunaticeradicator.github.io/Management-App/",
+    shortUrl: "15sd23asd12@12",
   },
 ];

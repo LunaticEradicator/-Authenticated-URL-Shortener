@@ -81,10 +81,17 @@ Register and Logout functionality
 
 ```
 [Logic
- 1, We save the user input in the database using a post route
- 2, Then we create a random id [shortid] for that link
- 3, Then we create another get route
- 4, Where we will search the model id with the req.params[id]
+ 1, POST
+  We save the user input in the database using a post route
+  Then we create a random id [shortid] for that link [shortURL] [placeholder]
+ 2, GET /:id
+   Working of shortURL
+   We will find the model of shortUrl [placeholder] with the req.params.id [dynamic route]
+   Then redirect to the correctUrl [longUrl]
+ 3, GET /
+    fetch logged in user shortUrl data
+    [Frontend Implemented in Tenth Commit ]
+    [Backend Second Part : Implemented in Eleven Commit ]
  ]
 Backend Implementation ShortUrl [Model, Routes, Controller]
 Install Package [valid-url,shortid].
@@ -110,4 +117,11 @@ add edge case [same link for different user if the link doesn't already exist]
 
 ```
 Bug Fix : Automated Re-fetching [Redux]
+```
+
+**Thirteen Commit**
+
+```
+Code Cleanup
+Style Change
 ```

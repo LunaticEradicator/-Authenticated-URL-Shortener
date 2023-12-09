@@ -90,9 +90,17 @@ export default function UrlShorter() {
           {shortUrlData?.map((data: postProps) => {
             return (
               <tr key={data._id}>
-                <td data-label="Shorten URL">{data.longUrl}</td>
                 <td data-label="URL">
-                  <Link to={data.longUrl}>{data.shortUrl}</Link>
+                  {" "}
+                  <Link target="_blank" className="longUrl" to={data.longUrl}>
+                    {data.longUrl}
+                  </Link>
+                </td>
+                <td data-label="Shorten URL">
+                  {" "}
+                  <Link target="_blank" className="shortUrl" to={data.longUrl}>
+                    {`www.${data.shortUrl}.com`}
+                  </Link>
                 </td>
               </tr>
             );
@@ -133,25 +141,4 @@ export default function UrlShorter() {
       {userInfo && renderShortUrlData}
     </>
   );
-}
-
-{
-  /* Responsive Table to show Shorten page [Implementation later] */
-}
-{
-  /* <table>
-        <caption>Shorten URL Details</caption>
-        <thead>
-          <tr>
-            <th>Shorten URL</th>
-            <th>URL</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr key={"123"}>
-            <td data-label="Shorten URL">Shorten URL</td>
-            <td data-label="URL">URL</td>
-          </tr>
-        </tbody>
-      </table> */
 }
