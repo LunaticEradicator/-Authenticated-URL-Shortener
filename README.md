@@ -166,8 +166,14 @@ Test Build Setting [see if dist folder is created in frontend]
  3, browser open the backend localhost [http://localhost:8080]
 ```
 
-**Fourteen Commit**
+**Fifteen Commit**
 
 ```
 Update Readme
+```
+
+**Sixteen Commit**
+
+```
+Bug Fix : Redux slice initialState name [auth slice]
 ```
