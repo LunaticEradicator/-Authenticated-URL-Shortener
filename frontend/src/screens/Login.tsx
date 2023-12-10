@@ -69,7 +69,7 @@ export default function Login() {
           onSubmit={(event) => onSubmitHandler(event)}
         >
           <div className="login__form__email">
-            <label htmlFor="email">Enter Email</label>
+            <label htmlFor="email">Email ID</label>
             <input
               type="email"
               name="email"
@@ -79,7 +79,7 @@ export default function Login() {
             />
           </div>
           <div className="login__form__password">
-            <label htmlFor="password">Enter Password</label>
+            <label htmlFor="password">Password</label>
             <input
               type="password"
               name="password"

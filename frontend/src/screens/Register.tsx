@@ -84,14 +84,14 @@ export default function Register() {
   return (
     <Container>
       <div className="register">
-        <h2 className="register__header">Register User</h2>
+        <h2 className="register__header">Register New User</h2>
         <form
           action="#"
           className="register__form"
           onSubmit={(event) => onSubmitHandler(event)}
         >
           <div className="register__form__userName">
-            <label htmlFor="userName">Enter Name</label>
+            <label htmlFor="userName"> Name</label>
             <input
               // required={true}
               type="text"
@@ -102,7 +102,7 @@ export default function Register() {
             />
           </div>
           <div className="register__form__email">
-            <label htmlFor="email">Enter Email</label>
+            <label htmlFor="email">Email</label>
             <input
               // required={true}
               type="email"
@@ -110,11 +110,14 @@ export default function Register() {
               id="email"
               value={formData.email}
               onChange={(event) => onChangeHandler(event)}
-              pattern="^([a-z0-9][._]?)+[a-z0-9]@[a-z0-9]+(\.?[a-z0-9]){2}\.(com?|net|org)+(\.[a-z0-9]{2,4})?"
+              pattern="^([a-z0-9][._]?)+[a-z0-9]@[a-z0-9]+(\.?[a-z0-9]){2}\.(com?|net|org|ae)+(\.[a-z0-9]{2,4})?"
             />
+            <p className="error-message">
+              Email must be a valid address, e.g me@mydomain.com|net|org|ae
+            </p>
           </div>
           <div className="register__form__password">
-            <label htmlFor="password">Enter Password</label>
+            <label htmlFor="password"> Password</label>
             <input
               // required={true}
               type="password"
@@ -122,7 +125,17 @@ export default function Register() {
               id="password"
               value={formData.password}
               onChange={(event) => onChangeHandler(event)}
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$"
             />
+            <p className="error-message">
+              Password must contain atleast
+              <br />
+              One number, uppercase, lowercase, special character
+              <br />
+              And must be a 8-16 character
+              <br />
+              Eg : Password@12
+            </p>
           </div>
           <div className="register__form__confirmPassword">
             <label htmlFor="password">Confirm Password</label>

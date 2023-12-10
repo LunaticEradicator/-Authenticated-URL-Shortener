@@ -79,11 +79,11 @@ export default function UrlShorter() {
   } else {
     renderShortUrlData = (
       <table>
-        <caption>Short URL</caption>
+        <caption>History</caption>
         <thead>
           <tr>
-            <th>Shorten URL</th>
             <th>URL</th>
+            <th>Shorten URL</th>
           </tr>
         </thead>
         <tbody>
@@ -99,7 +99,7 @@ export default function UrlShorter() {
                 <td data-label="Shorten URL">
                   {" "}
                   <Link target="_blank" className="shortUrl" to={data.longUrl}>
-                    {`www.${data.shortUrl}.com`}
+                    {`https://${data.shortUrl}`}
                   </Link>
                 </td>
               </tr>
@@ -123,7 +123,7 @@ export default function UrlShorter() {
   return (
     <>
       <div className="urlShorter">
-        <h2>Shorten a long url</h2>
+        <h2>Shorten a long URL</h2>
         <form action="#" className="urlShorter__form" onSubmit={handleSubmit}>
           <div className="urlShorter__form__url">
             <label htmlFor="urlShorter">Enter URL</label>

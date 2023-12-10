@@ -177,3 +177,12 @@ Update Readme
 ```
 Bug Fix : Redux slice initialState name [auth slice]
 ```
+
+**Seventeen Commit [Additional Fix ]**
+
+```
+Update Fav Icon
+UI Fix         : on UrlShorter Screen
+Regex Update   : Password
+Frontend Auth  : Register error message [email,password]
+```
